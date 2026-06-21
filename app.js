@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 3. SCROLL FADE-IN ANIMATION (INTERSECTION OBSERVER)
+  // 3. SCROLL FADE-IN ANIMATION & METRICS COUNTER
   // ==========================================================================
   const fadeSections = document.querySelectorAll('.fade-in-section');
 
@@ -84,10 +84,51 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.1 // trigger when 10% visible
   };
 
+  // Helper for metrics counter animation
+  function animateMetrics() {
+    const metricNumbers = document.querySelectorAll('.metric-number');
+    metricNumbers.forEach(el => {
+      const text = el.textContent.trim();
+      const match = text.match(/^(\d+)(.*)$/);
+      if (!match) return; // Skip if no number (e.g. "Islandwide")
+      
+      const target = parseInt(match[1], 10);
+      const suffix = match[2];
+      
+      const duration = 1500; // 1.5s
+      const startTime = performance.now();
+      
+      function updateCount(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing: easeOutCubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeProgress * target);
+        
+        el.textContent = current + suffix;
+        
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+      
+      requestAnimationFrame(updateCount);
+    });
+  }
+
   const sectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
+        
+        // If the target is the metrics section, trigger counting animation
+        if (entry.target.classList.contains('metrics')) {
+          animateMetrics();
+        }
+        
         observer.unobserve(entry.target); // Animate once only
       }
     });
@@ -100,157 +141,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================================================
-  // 5. AUTO-SLIDING CAROUSEL ENGINE WITH SWIPE SUPPORT
+  // 5. ROTATIONAL STACKED CARD EXPERIENCE - COLLECTIONS
   // ==========================================================================
-  const track = document.getElementById('carouselTrack');
-  const viewport = document.getElementById('carouselViewport');
-  const slides = Array.from(track.children);
-  const nextBtn = document.getElementById('carouselNext');
-  const prevBtn = document.getElementById('carouselPrev');
-  const dotsContainer = document.getElementById('carouselDots');
-  const dots = Array.from(dotsContainer.children);
-
-  let currentIndex = 0;
-  let startX = 0;
-  let isDragging = false;
-  let autoPlayInterval;
-
-  function updateCarousel() {
-    // Move track
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  
+  class StackedCardController {
+    constructor(stackId, autoProgressInterval = 6000) {
+      this.stack = document.getElementById(stackId);
+      if (!this.stack) return;
+      
+      this.cards = Array.from(this.stack.querySelectorAll('.stack-card'));
+      if (this.cards.length === 0) return;
+      
+      // Initialize card order array (e.g. [0, 1, 2, 3, 4, 5])
+      this.cardOrder = this.cards.map((_, index) => index);
+      this.isTransitioning = false;
+      this.stackInterval = null;
+      this.autoProgressInterval = autoProgressInterval;
+      
+      this.init();
+    }
     
-    // Update active slide class (triggers scale/opacity transitions)
-    slides.forEach((slide, index) => {
-      if (index === currentIndex) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
-    });
-
-    // Update active pagination dot
-    dots.forEach((dot, index) => {
-      if (index === currentIndex) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
-    });
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
-
-  function startAutoPlay() {
-    autoPlayInterval = setInterval(nextSlide, 5000); // Auto-scroll every 5 seconds
-  }
-
-  function resetAutoPlay() {
-    clearInterval(autoPlayInterval);
-    startAutoPlay();
-  }
-
-  // Click Listeners
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetAutoPlay();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetAutoPlay();
-    });
-  }
-
-  // Dots Pagination Click Listeners
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      currentIndex = index;
-      updateCarousel();
-      resetAutoPlay();
-    });
-  });
-
-  // Touch & Swipe Event Handlers for Mobile Devices
-  if (viewport) {
-    viewport.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      clearInterval(autoPlayInterval);
-    });
-
-    viewport.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const currentX = e.touches[0].clientX;
-      const diff = startX - currentX;
+    init() {
+      // 1. Set initial levels
+      this.updateStackClasses();
       
-      // Prevent default bounce scroll on heavy horizontal swipes
-      if (Math.abs(diff) > 10) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-
-    viewport.addEventListener('touchend', (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-
-      // Minimum swipe threshold of 50px
-      if (diff > 50) {
-        nextSlide();
-      } else if (diff < -50) {
-        prevSlide();
-      }
+      // 2. Add click listeners to cards
+      this.cards.forEach(card => {
+        card.addEventListener('click', () => {
+          if (card.classList.contains('level-0')) {
+            this.progressStack();
+            this.resetStackInterval();
+          }
+        });
+      });
       
-      startAutoPlay();
-    });
-
-    // Mouse Drag Event Handlers for Desktop (adds a premium touch-feel)
-    viewport.addEventListener('mousedown', (e) => {
-      startX = e.clientX;
-      isDragging = true;
-      clearInterval(autoPlayInterval);
-      viewport.style.cursor = 'grabbing';
-    });
-
-    viewport.addEventListener('mouseup', (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      viewport.style.cursor = 'grab';
-      const endX = e.clientX;
-      const diff = startX - endX;
-
-      if (diff > 50) {
-        nextSlide();
-      } else if (diff < -50) {
-        prevSlide();
-      }
+      // 3. Start auto-progression
+      this.startStackInterval();
+    }
+    
+    removeLevelClasses(card) {
+      // Helper to dynamically remove all level-X classes
+      const classesToRemove = [];
+      card.classList.forEach(cls => {
+        if (cls.startsWith('level-')) {
+          classesToRemove.push(cls);
+        }
+      });
+      classesToRemove.forEach(cls => card.classList.remove(cls));
+    }
+    
+    updateStackClasses() {
+      this.cards.forEach((card, index) => {
+        const orderIndex = this.cardOrder.indexOf(index);
+        
+        this.removeLevelClasses(card);
+        
+        if (orderIndex !== -1) {
+          card.classList.add(`level-${orderIndex}`);
+        }
+      });
+    }
+    
+    progressStack() {
+      if (this.isTransitioning) return;
+      this.isTransitioning = true;
       
-      startAutoPlay();
-    });
-
-    viewport.addEventListener('mouseleave', () => {
-      if (isDragging) {
-        isDragging = false;
-        viewport.style.cursor = 'grab';
-        startAutoPlay();
-      }
-    });
+      const activeIndex = this.cardOrder[0];
+      const activeCard = this.cards[activeIndex];
+      
+      // Slide active card out of view slightly (keep on top)
+      activeCard.classList.add('animating-out');
+      
+      // Shift indices to bring next card to active
+      const oldActive = this.cardOrder.shift();
+      
+      // Update levels of other cards immediately (they scale up simultaneously)
+      this.cards.forEach((card, index) => {
+        const orderIndex = this.cardOrder.indexOf(index);
+        if (orderIndex !== -1) {
+          this.removeLevelClasses(card);
+          card.classList.add(`level-${orderIndex}`);
+        }
+      });
+      
+      // After 250ms (peak of swipe-out), move the old active card to the bottom level (slides back behind)
+      setTimeout(() => {
+        this.cardOrder.push(oldActive);
+        
+        this.removeLevelClasses(activeCard);
+        activeCard.classList.remove('animating-out');
+        
+        // Update its class to the bottom level index
+        const bottomLevelIndex = this.cards.length - 1;
+        activeCard.classList.add(`level-${bottomLevelIndex}`);
+      }, 250);
+      
+      // Unlock transition after the entire animation completes (600ms)
+      setTimeout(() => {
+        this.isTransitioning = false;
+      }, 600);
+    }
+    
+    startStackInterval() {
+      this.stackInterval = setInterval(() => this.progressStack(), this.autoProgressInterval);
+    }
+    
+    resetStackInterval() {
+      clearInterval(this.stackInterval);
+      this.startStackInterval();
+    }
   }
 
-  // Initialize Carousel
-  updateCarousel();
-  startAutoPlay();
+  // Initialize controllers for the 4 sections
+  new StackedCardController('bouquetsStack');
+  new StackedCardController('giftsStack');
+  new StackedCardController('jimmikisStack');
+  new StackedCardController('cakesStack');
 
 });

@@ -34,9 +34,11 @@
       <nav class="nav-links">
         <a href="#hero" class="active">Home</a>
         <a href="#story">Our Story</a>
-        <a href="#create">What We Create</a>
+        <a href="#collections">Bouquets</a>
+        <a href="#gifts">Gifts</a>
+        <a href="#jimmikis">Jimmikis</a>
+        <a href="#cakes">Cakes</a>
         <a href="#how">How It Works</a>
-        <a href="#featured">Featured</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact" class="btn btn-outlined" style="padding: 0.5rem 1.25rem; min-width: auto; margin-left: 1rem;">Contact Us</a>
       </nav>
@@ -58,9 +60,11 @@
     <nav class="mobile-nav-links">
       <a href="#hero" class="mobile-link">Home</a>
       <a href="#story" class="mobile-link">Our Story</a>
-      <a href="#create" class="mobile-link">What We Create</a>
+      <a href="#collections" class="mobile-link">Bouquets</a>
+      <a href="#gifts" class="mobile-link">Gifts</a>
+      <a href="#jimmikis" class="mobile-link">Jimmikis</a>
+      <a href="#cakes" class="mobile-link">Cakes</a>
       <a href="#how" class="mobile-link">How It Works</a>
-      <a href="#featured" class="mobile-link">Featured Creations</a>
       <a href="#reviews" class="mobile-link">Reviews</a>
     </nav>
     <a href="https://wa.me/94766776019?text=Hi%20HeartLink%20Creations!%20I'd%20like%20to%20order%20a%20personalized%20gift." target="_blank" class="btn btn-primary" style="width: 100%;">
@@ -92,7 +96,7 @@
     </section>
 
     <!-- 2. Trust Metrics Section -->
-    <section class="metrics">
+    <section class="metrics fade-in-section">
       <div class="container">
         <div class="metrics-grid">
           <div class="metric-card">
@@ -191,68 +195,86 @@
       </div>
     </section>
 
-    <!-- 6. What We Create Section -->
-    <section class="create fade-in-section" id="create">
+    <!-- 6. Our Collections - Signature Bouquets Section -->
+    <section class="collection-section fade-in-section" id="collections">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tagline label-caps">Showcase Categories</span>
-          <h2 class="section-title headline-md">What We <span>Create</span></h2>
-          <p class="section-desc body-lg">We specialize in personalized gifts designed around your relationships, budgets, and personal stories.</p>
-        </div>
-        <div class="create-grid">
-          <!-- Category 1 -->
-          <div class="create-card">
-            <div class="create-img-wrapper">
-              <img src="assets/surprise_hamper.png" alt="Custom Hampers & Boxes" class="create-img">
-            </div>
-            <div class="create-info">
-              <h3 class="create-card-title headline-sm">Hampers & Gift Boxes</h3>
-              <p class="create-card-desc body-md">Luxurious open hampers and custom-packaged gift boxes designed to fit the recipient's unique taste and lifestyle.</p>
-              <div class="create-subcategories-label label-caps">Included Categories</div>
-              <div class="create-subcategories">
-                <span class="subcategory-tag">Surprise Hampers</span>
-                <span class="subcategory-tag">Customized Gift Boxes</span>
-                <span class="subcategory-tag">Packaging Design</span>
-                <span class="subcategory-tag">Custom Orders</span>
-              </div>
-            </div>
+        <div class="collection-grid">
+          <div class="collection-content">
+            <span class="section-tagline label-caps">Handcrafted Elegance</span>
+            <h2 class="section-title headline-md">Signature <span>Bouquets</span></h2>
+            <p class="collection-desc body-lg">Handcrafted bouquet creations designed to express love, appreciation, congratulations, and joy. From silk ribbons to premium chocolates, each piece is individually crafted to remain beautiful forever.</p>
+            <ul class="collection-features body-md">
+              <li><i class="fa-solid fa-check"></i> Ribbon Bouquets (silk ribbon roses in customized colors)</li>
+              <li><i class="fa-solid fa-check"></i> Chocolate Bouquets (delicate chocolate pairings)</li>
+              <li><i class="fa-solid fa-check"></i> Toy & Teddy Bouquets (charming combinations)</li>
+              <li><i class="fa-solid fa-check"></i> Jimmiki Bouquets (combining heritage ear studs with floral craft)</li>
+            </ul>
+            <a href="https://wa.me/94766776019?text=Hi%20HeartLink%20Creations!%20I'd%20like%20to%20inquire%20about%20a%20Custom%20Bouquet." target="_blank" class="btn btn-primary">
+              <i class="fa-brands fa-whatsapp" style="margin-right: 0.5rem;"></i> Inquire About Bouquets
+            </a>
           </div>
           
-          <!-- Category 2 -->
-          <div class="create-card">
-            <div class="create-img-wrapper">
-              <img src="assets/ribbon_bouquet.png" alt="Handcrafted Ribbon Bouquets" class="create-img">
-            </div>
-            <div class="create-info">
-              <h3 class="create-card-title headline-sm">Artisanal Bouquets</h3>
-              <p class="create-card-desc body-md">Beautiful bouquets that last a lifetime, meticulously hand-crafted from silk ribbons, chocolates, and premium papers.</p>
-              <div class="create-subcategories-label label-caps">Included Categories</div>
-              <div class="create-subcategories">
-                <span class="subcategory-tag">Ribbon Bouquets</span>
-                <span class="subcategory-tag">Handcrafted Bouquets</span>
-                <span class="subcategory-tag">Chocolate Bouquets</span>
-                <span class="subcategory-tag">Jimmiki Bouquets</span>
-                <span class="subcategory-tag">All Bouquet Types</span>
+          <div class="collection-stack-wrapper">
+            <div class="collection-stack" id="bouquetsStack">
+              <!-- Card 1 -->
+              <div class="stack-card level-0" data-card-index="0">
+                <div class="card-images">
+                  <img src="assets/ribbon_bouquet.png" alt="Artisanal Ribbon Bouquet" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Ribbon Bouquet</h4>
+                  <p>Created to celebrate a graduation milestone with elegance and joy.</p>
+                </div>
               </div>
-            </div>
-          </div>
-          
-          <!-- Category 3 -->
-          <div class="create-card">
-            <div class="create-img-wrapper">
-              <img src="assets/photo_frame.png" alt="Photo Frames and Keepsakes" class="create-img">
-            </div>
-            <div class="create-info">
-              <h3 class="create-card-title headline-sm">Frames & Keepsakes</h3>
-              <p class="create-card-desc body-md">Timeless memory frames, customized cakes, traditional Jimmikis, and gifts celebrating couple milestones or special events.</p>
-              <div class="create-subcategories-label label-caps">Included Categories</div>
-              <div class="create-subcategories">
-                <span class="subcategory-tag">Photo Frames</span>
-                <span class="subcategory-tag">Jimmikis Jewellry</span>
-                <span class="subcategory-tag">Custom Cakes</span>
-                <span class="subcategory-tag">Couple Gifts</span>
-                <span class="subcategory-tag">Event Gifts</span>
-                <span class="subcategory-tag">Special Occasion</span>
+              <!-- Card 2 -->
+              <div class="stack-card level-1" data-card-index="1">
+                <div class="card-images">
+                  <img src="assets/bouquets/chocolate bouquets/gderrgv.jpeg" alt="Luxury Chocolate Bouquet" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Chocolate Surprise</h4>
+                  <p>A sweet combination of fine chocolates and silk ribbon roses.</p>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="stack-card level-2" data-card-index="2">
+                <div class="card-images">
+                  <img src="assets/bouquets/jimiki bouquets/WhatsApp Image 2026-03-30 at 7.34.43 PM (1).jpeg" alt="Jimmiki Bouquet" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Jimmiki Bouquet</h4>
+                  <p>Handcrafted to present a beautiful set of earrings in a surprise floral arrangement.</p>
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div class="stack-card level-3" data-card-index="3">
+                <div class="card-images">
+                  <img src="assets/bouquets/ribbon boquets/WhatsApp Image 2026-02-04 at 5.23.59 PM.jpeg" alt="Silk Ribbon Roses" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Eternal Pastel Roses</h4>
+                  <p>Handmade rose buds designed to keep memories fresh forever.</p>
+                </div>
+              </div>
+              <!-- Card 5 -->
+              <div class="stack-card level-4" data-card-index="4">
+                <div class="card-images">
+                  <img src="assets/bouquets/chocolate bouquets/zxvzv.jpeg" alt="Sweet Chocolate Arrangement" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Chocolate Rose Gift</h4>
+                  <p>Meticulously hand-wrapped chocolate treats styled with silk ribbons.</p>
+                </div>
+              </div>
+              <!-- Card 6 -->
+              <div class="stack-card level-5" data-card-index="5">
+                <div class="card-images">
+                  <img src="assets/bouquets/jimiki bouquets/WhatsApp Image 2026-03-30 at 7.34.44 PM.jpeg" alt="Heritage Earrings Bouquet" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Earring Surprise Bouquet</h4>
+                  <p>A gold filigree jimmiki set tucked inside a blooming handmade bouquet.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -260,7 +282,208 @@
       </div>
     </section>
 
-    <!-- 7. How It Works (Line-based Progress Flow) Section -->
+    <!-- 7. Our Collections - Personalized Gifts Section -->
+    <section class="collection-section fade-in-section" id="gifts">
+      <div class="container">
+        <div class="collection-grid layout-reverse">
+          <div class="collection-stack-wrapper">
+            <div class="collection-stack" id="giftsStack">
+              <!-- Card 1 -->
+              <div class="stack-card level-0" data-card-index="0">
+                <div class="card-images">
+                  <img src="assets/surprise_hamper.png" alt="Cozy Autumn Hamper" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Chocolate Surprise Hamper</h4>
+                  <p>Thoughtfully curated to turn a simple celebration into a lasting memory.</p>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="stack-card level-1" data-card-index="1">
+                <div class="card-images">
+                  <img src="assets/gift box/1/WhatsApp Image 2026-03-30 at 7.35.19 PM.jpeg" alt="Handcrafted Memory Crate" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Anniversary Gift Box</h4>
+                  <p>Designed with personal memories, scents, and details for a golden milestone.</p>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="stack-card level-2" data-card-index="2">
+                <div class="card-images">
+                  <img src="assets/gift box/2/WhatsApp Image 2026-06-21 at 12.01.02 PM.jpeg" alt="Premium Occasion Hamper" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Milestone Birthday Box</h4>
+                  <p>A premium wooden crate containing a hand-poured candle and personalized items.</p>
+                </div>
+              </div>
+              <!-- Card 4 -->
+              <div class="stack-card level-3" data-card-index="3">
+                <div class="card-images">
+                  <img src="assets/photo_frame.png" alt="Silhouette Wooden Frame" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Birthday Memory Box</h4>
+                  <p>Designed around the recipient's favourite memories and milestones.</p>
+                </div>
+              </div>
+              <!-- Card 5 -->
+              <div class="stack-card level-4" data-card-index="4">
+                <div class="card-images">
+                  <img src="assets/gift box/2/WhatsApp Image 2026-06-21 at 12.03.39 PM.jpeg" alt="Heartfelt Gift Set" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Heartfelt Gift Set</h4>
+                  <p>Elegant stationery and small floral arrangements in a customized setup.</p>
+                </div>
+              </div>
+              <!-- Card 6 -->
+              <div class="stack-card level-5" data-card-index="5">
+                <div class="card-images">
+                  <img src="assets/gift box/3/WhatsApp Image 2026-06-21 at 12.03.46 PM.jpeg" alt="Special Surprise Pack" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Special Occasion Package</h4>
+                  <p>Custom ribbon closures and customized boxes styled to match your theme.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="collection-content">
+            <span class="section-tagline label-caps">Thoughtful Gestures</span>
+            <h2 class="section-title headline-md">Personalized <span>Gifts</span></h2>
+            <p class="collection-desc body-lg">Thoughtfully curated gifting experiences designed around relationships, celebrations, and unforgettable moments. Whether a birthday hamper or customized wooden box, we construct every detail with absolute care.</p>
+            <ul class="collection-features body-md">
+              <li><i class="fa-solid fa-check"></i> Cozy Surprise Hampers (candles, treats, custom letters)</li>
+              <li><i class="fa-solid fa-check"></i> Birthday & Anniversary Crates (custom theme setups)</li>
+              <li><i class="fa-solid fa-check"></i> Couple & Valentine's Collections (meaningful memory boxes)</li>
+              <li><i class="fa-solid fa-check"></i> Event & Corporate Gift Boxes (coordinated custom finishes)</li>
+            </ul>
+            <a href="https://wa.me/94766776019?text=Hi%20HeartLink%20Creations!%20I'd%20like%20to%20inquire%20about%20a%20Personalized%20Gift." target="_blank" class="btn btn-primary">
+              <i class="fa-brands fa-whatsapp" style="margin-right: 0.5rem;"></i> Inquire About Gifts
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Our Collections - Elegant Jimmikis Section -->
+    <section class="collection-section fade-in-section" id="jimmikis">
+      <div class="container">
+        <div class="collection-grid">
+          <div class="collection-content">
+            <span class="section-tagline label-caps">Heritage Beauty</span>
+            <h2 class="section-title headline-md">Elegant <span>Jimmikis</span></h2>
+            <p class="collection-desc body-lg">Beautifully selected traditional and modern jewelry pieces that combine elegance, heritage, and style. Presented in signature velvet jewelry packaging, they make the perfect keepsake gifts.</p>
+            <ul class="collection-features body-md">
+              <li><i class="fa-solid fa-check"></i> Premium Traditional Jimmikis (gold-plated filigree craftsmanship)</li>
+              <li><i class="fa-solid fa-check"></i> Budget-Friendly Modern Jimmikis (contemporary selections)</li>
+              <li><i class="fa-solid fa-check"></i> Customized Bridesmaid Sets (packaged with coordinating ribbons)</li>
+              <li><i class="fa-solid fa-check"></i> Special Occasion Gift Box Packages (velvet lined with custom tags)</li>
+            </ul>
+            <a href="https://wa.me/94766776019?text=Hi%20HeartLink%20Creations!%20I'd%20like%20to%20inquire%20about%20Elegant%20Jimmikis." target="_blank" class="btn btn-primary">
+              <i class="fa-brands fa-whatsapp" style="margin-right: 0.5rem;"></i> Inquire About Jimmikis
+            </a>
+          </div>
+          
+          <div class="collection-stack-wrapper">
+            <div class="collection-stack" id="jimmikisStack">
+              <!-- Card 1 -->
+              <div class="stack-card level-0" data-card-index="0">
+                <div class="card-images">
+                  <img src="assets/jimmikis_gift.png" alt="Royal Jimmiki Jewelry Box" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Royal Jimmiki Box</h4>
+                  <p>Handcrafted for a bride's close friends as a traditional wedding bridesmaid token.</p>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="stack-card level-1" data-card-index="1">
+                <div class="card-images">
+                  <img src="assets/jimikis/Screenshot 2026-06-21 121109.png" alt="Elegant Jimmikis" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Elegant Jimmiki Collection</h4>
+                  <p>Selected to bring beauty, confidence, and a heritage touch to every occasion.</p>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="stack-card level-2" data-card-index="2">
+                <div class="card-images">
+                  <img src="assets/jimmikis_gift.png" alt="Heritage Gift Selection" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Classic Gift Ear Studs</h4>
+                  <p>Presented with custom handwritten tag details for a personalized gift experience.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Our Collections - Customized Cakes Section -->
+    <section class="collection-section fade-in-section" id="cakes">
+      <div class="container">
+        <div class="collection-grid layout-reverse">
+          <div class="collection-stack-wrapper">
+            <div class="collection-stack" id="cakesStack">
+              <!-- Card 1 -->
+              <div class="stack-card level-0" data-card-index="0">
+                <div class="card-images">
+                  <img src="assets/cakes/Screenshot 2026-06-21 121312.png" alt="Custom Celebration Cake" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Customized Celebration Cake</h4>
+                  <p>Crafted to become the centerpiece of a special day shared with loved ones.</p>
+                </div>
+              </div>
+              <!-- Card 2 -->
+              <div class="stack-card level-1" data-card-index="1">
+                <div class="card-images">
+                  <img src="assets/cakes/Screenshot 2026-06-21 121312.png" alt="Gold Foil Palette Cake" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Gold Foil Palette Cake</h4>
+                  <p>Hand-painted buttercream texture accented with premium cake details.</p>
+                </div>
+              </div>
+              <!-- Card 3 -->
+              <div class="stack-card level-2" data-card-index="2">
+                <div class="card-images">
+                  <img src="assets/cakes/Screenshot 2026-06-21 121312.png" alt="Artisanal Anniversary Cake" class="active">
+                </div>
+                <div class="card-story-overlay">
+                  <h4>Artisanal Anniversary Cake</h4>
+                  <p>Bespoke flavors and textures designed to celebrate unique love stories.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="collection-content">
+            <span class="section-tagline label-caps">Celebration Centerpieces</span>
+            <h2 class="section-title headline-md">Customized <span>Cakes</span></h2>
+            <p class="collection-desc body-lg">Custom-designed cakes created to become the centerpiece of life's most cherished celebrations. Crafted to order, we combine artistic design with premium ingredients to reflect your theme.</p>
+            <ul class="collection-features body-md">
+              <li><i class="fa-solid fa-check"></i> Custom Birthday Cakes (vibrant themes and customized characters)</li>
+              <li><i class="fa-solid fa-check"></i> Elegant Anniversary Cakes (refined designs and gold leaf detailing)</li>
+              <li><i class="fa-solid fa-check"></i> Celebrations & Milestones (tiered centerpieces for big events)</li>
+              <li><i class="fa-solid fa-check"></i> Personalized Treat Packs (coordinating cupcakes and custom boxes)</li>
+            </ul>
+            <a href="https://wa.me/94766776019?text=Hi%20HeartLink%20Creations!%20I'd%20like%20to%20inquire%20about%20a%20Customized%20Cake." target="_blank" class="btn btn-primary">
+              <i class="fa-brands fa-whatsapp" style="margin-right: 0.5rem;"></i> Inquire About Cakes
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. How It Works (Line-based Progress Flow) Section -->
     <section class="how fade-in-section" id="how">
       <div class="container">
         <div class="section-header">
@@ -297,97 +520,6 @@
               <h3 class="step-title headline-sm">We Deliver</h3>
               <p class="step-desc body-md">Islandwide delivery to bring smiles to their doorstep.</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Featured Creations (Carousel) Section -->
-    <section class="featured fade-in-section" id="featured">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tagline label-caps">Customer Favorites</span>
-          <h2 class="section-title headline-md">Featured <span>Creations</span></h2>
-          <p class="section-desc body-lg">A glimpse of the customized, emotional memories we've crafted recently. No standard catalog pricing; each one is unique.</p>
-        </div>
-        
-        <div class="carousel-container">
-          <button class="carousel-btn carousel-btn-prev" id="carouselPrev" aria-label="Previous slide">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="carousel-btn carousel-btn-next" id="carouselNext" aria-label="Next slide">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-          
-          <div class="carousel-viewport" id="carouselViewport">
-            <div class="carousel-track" id="carouselTrack">
-              <!-- Slide 1 -->
-              <div class="carousel-slide active">
-                <div class="slide-content">
-                  <div class="slide-img-wrapper">
-                    <img src="assets/ribbon_bouquet.png" alt="Elegant silk ribbon rose bouquet" class="slide-img">
-                  </div>
-                  <div class="slide-info">
-                    <span class="slide-tag label-caps">Anniversary Special</span>
-                    <h3 class="slide-title headline-sm">Artisanal Ribbon Bouquet</h3>
-                    <p class="slide-desc body-md">Handcrafted with over fifty silk ribbon roses in delicate champagne gold and pastel pink, designed to celebrate a couple's golden milestone. A bouquet that remains beautiful forever.</p>
-                    <div class="slide-story-quote">"Designed for a loving husband who wanted a bouquet that wouldn't fade, representing their eternal bond."</div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Slide 2 -->
-              <div class="carousel-slide">
-                <div class="slide-content">
-                  <div class="slide-img-wrapper">
-                    <img src="assets/surprise_hamper.png" alt="Personalized birthday surprise hamper box" class="slide-img">
-                  </div>
-                  <div class="slide-info">
-                    <span class="slide-tag label-caps">Birthday Keepsake</span>
-                    <h3 class="slide-title headline-sm">Cozy Autumn Hamper</h3>
-                    <p class="slide-desc body-md">A premium customized hamper containing a small flower arrangement, hand-poured candle, handwritten calligraphy letter, and organic treats, packed in a customized wooden gift crate.</p>
-                    <div class="slide-story-quote">"Curated for a daughter living abroad to send warm, cozy birthday wishes to her mother in Badulla."</div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Slide 3 -->
-              <div class="carousel-slide">
-                <div class="slide-content">
-                  <div class="slide-img-wrapper">
-                    <img src="assets/photo_frame.png" alt="Silhouette wooden memory photo frame" class="slide-img">
-                  </div>
-                  <div class="slide-info">
-                    <span class="slide-tag label-caps">Memory Lane</span>
-                    <h3 class="slide-title headline-sm">Silhouette Wooden Frame</h3>
-                    <p class="slide-desc body-md">A minimalist styled photo frame carrying a hand-cut silhouette depicting a grandmother and granddaughter, complete with custom dates and delicate pressed flower details.</p>
-                    <div class="slide-story-quote">"Created to celebrate a granddaughter's first graduation, capturing the silhouette of the person who raised her."</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 4 -->
-              <div class="carousel-slide">
-                <div class="slide-content">
-                  <div class="slide-img-wrapper">
-                    <img src="assets/jimmikis_gift.png" alt="Traditional Sri Lankan Jimmiki box" class="slide-img">
-                  </div>
-                  <div class="slide-info">
-                    <span class="slide-tag label-caps">Heritage Gift</span>
-                    <h3 class="slide-title headline-sm">Royal Jimmiki Jewelry Box</h3>
-                    <p class="slide-desc body-md">Traditional golden Jimmiki ear studs presented in a custom-designed velvet jewelry box, finished with silk bows and a custom printed tag celebrating Sri Lankan heritage.</p>
-                    <div class="slide-story-quote">"Handcrafted for a bride's close friends as a traditional wedding bridesmaid token of gratitude."</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="carousel-dots" id="carouselDots">
-            <span class="carousel-dot active"></span>
-            <span class="carousel-dot"></span>
-            <span class="carousel-dot"></span>
-            <span class="carousel-dot"></span>
           </div>
         </div>
       </div>
@@ -546,7 +678,7 @@
           <p class="body-md" style="color: rgba(255, 248, 242, 0.65);">We are a personalized gifting brand focused on helping people express emotions, celebrate relationships, and create meaningful memories through customized creations.</p>
           <div class="social-links">
             <a href="https://instagram.com/heartlink_creations" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://facebook.com/HeartLink%20Creations" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/heartlinkcreations" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://wa.me/94766776019" target="_blank" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
@@ -556,9 +688,11 @@
           <ul>
             <li><a href="#hero">Home</a></li>
             <li><a href="#story">Our Story</a></li>
-            <li><a href="#create">What We Create</a></li>
+            <li><a href="#collections">Bouquets</a></li>
+            <li><a href="#gifts">Gifts</a></li>
+            <li><a href="#jimmikis">Jimmikis</a></li>
+            <li><a href="#cakes">Cakes</a></li>
             <li><a href="#how">How It Works</a></li>
-            <li><a href="#featured">Featured Creations</a></li>
             <li><a href="#reviews">Reviews</a></li>
           </ul>
         </div>
