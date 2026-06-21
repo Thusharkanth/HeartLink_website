@@ -455,7 +455,7 @@ p {
   align-items: center;
   background-image: linear-gradient(to right, rgba(255, 248, 242, 0.95) 0%, rgba(255, 248, 242, 0.88) 45%, rgba(255, 248, 242, 0.45) 100%), url('assets/hero_crafting_memories.png');
   background-size: cover;
-  background-position: center right;
+  background-position: 90% 70%;
   background-repeat: no-repeat;
   box-sizing: border-box;
 }
