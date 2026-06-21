@@ -449,22 +449,21 @@ p {
 /* Hero Section */
 .hero {
   padding-top: 5.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background-image: linear-gradient(to right, rgba(255, 248, 242, 0.95) 0%, rgba(255, 248, 242, 0.88) 45%, rgba(255, 248, 242, 0.45) 100%), url('assets/hero_crafting_memories.png');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
   box-sizing: border-box;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 5rem;
-  align-items: center;
-}
-
 .hero-content {
-  padding-right: 1.5rem;
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-tagline {
@@ -490,25 +489,6 @@ p {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
-}
-
-.hero-image-wrapper {
-  position: relative;
-  border-radius: var(--radius-soft);
-  overflow: hidden;
-  border: 1px solid var(--color-outline-variant);
-}
-
-.hero-img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  border-radius: var(--radius-soft);
-  transition: transform var(--transition-slow);
-}
-
-.hero-image-wrapper:hover .hero-img {
-  transform: scale(1.015);
 }
 
 /* Trust Metrics */
@@ -1432,19 +1412,17 @@ p {
   }
 
   .hero {
-    min-height: auto;
-    padding-top: 8rem;
+    min-height: 100vh;
+    padding-top: 7.5rem;
     padding-bottom: 4rem;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    background-image: linear-gradient(rgba(255, 248, 242, 0.94), rgba(255, 248, 242, 0.94)), url('assets/hero_crafting_memories.png');
+    background-position: center center;
   }
 
   .hero-content {
     padding-right: 0;
     text-align: center;
+    margin: 0 auto;
   }
 
   .hero-subtitle {
@@ -1454,10 +1432,6 @@ p {
 
   .hero-buttons {
     justify-content: center;
-  }
-
-  .hero-img {
-    height: 440px;
   }
 
   .metrics-grid {
